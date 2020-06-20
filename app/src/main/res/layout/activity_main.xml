@@ -1,0 +1,994 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/ONE1"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/ONE2"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ONE1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/ONE3"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ONE2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/ONE4"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ONE1"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/ONE5"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ONE4"
+        app:layout_constraintTop_toBottomOf="@+id/ONE2"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/ONE6"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ONE5"
+        app:layout_constraintTop_toBottomOf="@+id/ONE3"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/ONE7"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ONE4"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/ONE8"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ONE7"
+        app:layout_constraintTop_toBottomOf="@+id/ONE5"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/ONE9"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ONE8"
+        app:layout_constraintTop_toBottomOf="@+id/ONE6"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/TWO1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ONE3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/TWO2"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/TWO1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/TWO3"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/TWO2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/TWO4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ONE6"
+        app:layout_constraintTop_toBottomOf="@+id/TWO1"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/TWO5"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/TWO4"
+        app:layout_constraintTop_toBottomOf="@+id/TWO2"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/TWO6"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/TWO5"
+        app:layout_constraintTop_toBottomOf="@+id/TWO3"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/TWO7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ONE9"
+        app:layout_constraintTop_toBottomOf="@+id/TWO4"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/TWO8"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/TWO7"
+        app:layout_constraintTop_toBottomOf="@+id/TWO5"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/TWO9"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/TWO8"
+        app:layout_constraintTop_toBottomOf="@+id/TWO6"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/THREE1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/TWO3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/THREE2"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/THREE1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/THREE3"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/THREE2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/THREE4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/TWO6"
+        app:layout_constraintTop_toBottomOf="@+id/THREE1"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/THREE5"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/THREE4"
+        app:layout_constraintTop_toBottomOf="@+id/THREE2"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/THREE6"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/THREE5"
+        app:layout_constraintTop_toBottomOf="@+id/THREE3"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/THREE7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/TWO9"
+        app:layout_constraintTop_toBottomOf="@+id/THREE4"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/THREE8"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/THREE7"
+        app:layout_constraintTop_toBottomOf="@+id/THREE5"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/THREE9"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/THREE8"
+        app:layout_constraintTop_toBottomOf="@+id/THREE6"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FOUR1"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ONE7"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FOUR2"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@id/FOUR1"
+        app:layout_constraintTop_toBottomOf="@+id/ONE8"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FOUR3"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FOUR2"
+        app:layout_constraintTop_toBottomOf="@+id/ONE9"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FOUR4"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FOUR1"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FOUR5"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FOUR4"
+        app:layout_constraintTop_toBottomOf="@+id/FOUR2"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FOUR6"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FOUR5"
+        app:layout_constraintTop_toBottomOf="@+id/FOUR3"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FOUR7"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FOUR4"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FOUR8"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FOUR7"
+        app:layout_constraintTop_toBottomOf="@+id/FOUR5"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FOUR9"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FOUR8"
+        app:layout_constraintTop_toBottomOf="@+id/FOUR6"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FIVE1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FOUR3"
+        app:layout_constraintTop_toBottomOf="@+id/TWO7"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FIVE2"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FIVE1"
+        app:layout_constraintTop_toBottomOf="@+id/TWO8"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FIVE3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FIVE2"
+        app:layout_constraintTop_toBottomOf="@+id/TWO9"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FIVE4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FOUR6"
+        app:layout_constraintTop_toBottomOf="@+id/FIVE1"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FIVE5"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FIVE4"
+        app:layout_constraintTop_toBottomOf="@+id/FIVE2"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FIVE6"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FIVE5"
+        app:layout_constraintTop_toBottomOf="@+id/FIVE3"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FIVE7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FOUR9"
+        app:layout_constraintTop_toBottomOf="@+id/FIVE4"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FIVE8"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FIVE7"
+        app:layout_constraintTop_toBottomOf="@+id/FIVE5"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/FIVE9"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FIVE8"
+        app:layout_constraintTop_toBottomOf="@+id/FIVE6"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SIX1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FIVE3"
+        app:layout_constraintTop_toBottomOf="@+id/THREE7"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SIX2"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SIX1"
+        app:layout_constraintTop_toBottomOf="@+id/THREE8"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SIX3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SIX2"
+        app:layout_constraintTop_toBottomOf="@+id/THREE9"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SIX4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FIVE6"
+        app:layout_constraintTop_toBottomOf="@+id/SIX1"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SIX5"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SIX4"
+        app:layout_constraintTop_toBottomOf="@+id/SIX2"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SIX6"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SIX5"
+        app:layout_constraintTop_toBottomOf="@+id/SIX3"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SIX7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/FIVE9"
+        app:layout_constraintTop_toBottomOf="@+id/SIX4"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SIX8"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SIX7"
+        app:layout_constraintTop_toBottomOf="@+id/SIX5"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SIX9"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SIX8"
+        app:layout_constraintTop_toBottomOf="@+id/SIX6"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SEVEN1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FOUR7"
+        tools:ignore="Autofill,LabelFor,MissingConstraints"
+        tools:layout_editor_absoluteY="291dp" />
+
+    <EditText
+        android:id="@+id/SEVEN2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@id/SEVEN1"
+        app:layout_constraintTop_toBottomOf="@+id/FOUR8"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SEVEN3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SEVEN2"
+        app:layout_constraintTop_toBottomOf="@+id/FOUR9"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SEVEN4"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SEVEN1"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SEVEN5"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SEVEN4"
+        app:layout_constraintTop_toBottomOf="@+id/SEVEN2"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SEVEN6"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SEVEN5"
+        app:layout_constraintTop_toBottomOf="@+id/SEVEN3"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SEVEN7"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SEVEN4"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SEVEN8"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SEVEN7"
+        app:layout_constraintTop_toBottomOf="@+id/SEVEN5"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/SEVEN9"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SEVEN8"
+        app:layout_constraintTop_toBottomOf="@+id/SEVEN6"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/EIGHT1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SEVEN3"
+        app:layout_constraintTop_toBottomOf="@+id/FIVE7"
+        tools:ignore="Autofill,LabelFor,MissingConstraints"
+        tools:layout_editor_absoluteY="279dp" />
+
+    <EditText
+        android:id="@+id/EIGHT2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/EIGHT1"
+        app:layout_constraintTop_toBottomOf="@+id/FIVE8"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/EIGHT3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/EIGHT2"
+        app:layout_constraintTop_toBottomOf="@+id/FIVE9"
+        tools:ignore="Autofill,LabelFor,MissingConstraints"
+        tools:layout_editor_absoluteY="283dp" />
+
+    <EditText
+        android:id="@+id/EIGHT4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SEVEN6"
+        app:layout_constraintTop_toBottomOf="@+id/EIGHT1"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/EIGHT5"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/EIGHT4"
+        app:layout_constraintTop_toBottomOf="@+id/EIGHT2"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/EIGHT6"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/EIGHT5"
+        app:layout_constraintTop_toBottomOf="@+id/EIGHT3"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/EIGHT7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/SEVEN9"
+        app:layout_constraintTop_toBottomOf="@+id/EIGHT4"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/EIGHT8"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/EIGHT7"
+        app:layout_constraintTop_toBottomOf="@+id/EIGHT5"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/EIGHT9"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/EIGHT8"
+        app:layout_constraintTop_toBottomOf="@+id/EIGHT6"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/NINE1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/EIGHT3"
+        app:layout_constraintTop_toBottomOf="@+id/SIX7"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/NINE2"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/NINE1"
+        app:layout_constraintTop_toBottomOf="@+id/SIX8"
+        tools:ignore="Autofill,LabelFor,MissingConstraints"
+        tools:layout_editor_absoluteY="315dp" />
+
+    <EditText
+        android:id="@+id/NINE3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/NINE2"
+        app:layout_constraintTop_toBottomOf="@+id/SIX9"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/NINE4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/EIGHT6"
+        app:layout_constraintTop_toBottomOf="@+id/NINE1"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/NINE5"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/NINE4"
+        app:layout_constraintTop_toBottomOf="@+id/NINE2"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/NINE6"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/NINE5"
+        app:layout_constraintTop_toBottomOf="@+id/NINE3"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/NINE7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/EIGHT9"
+        app:layout_constraintTop_toBottomOf="@+id/NINE4"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/NINE8"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/NINE7"
+        app:layout_constraintTop_toBottomOf="@+id/NINE5"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/NINE9"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/NINE8"
+        app:layout_constraintTop_toBottomOf="@+id/NINE6"
+        tools:ignore="Autofill,LabelFor,MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnSolve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="111dp"
+        tools:layout_editor_absoluteY="528dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,7 @@
 #include <string>
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_teamSCORPION_sudokusolver_MainActivity_stringFromJNI(
+Java_com_teamscorpion_sudokusolver2_MainActivity_stringFromJNI(
         JNIEnv* env,
         jobject /* this */) {
     std::string hello = "Hello from C++";

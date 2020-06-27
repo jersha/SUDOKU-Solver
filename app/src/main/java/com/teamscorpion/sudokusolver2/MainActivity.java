@@ -3,12 +3,14 @@ package com.teamscorpion.sudokusolver2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.text.InputFilter;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -18,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.stream.IntStream;
 
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     Bitmap[] numbers;
     Bitmap optionsbar_bt;
     Bitmap selected;
+    float device_height, device_width;
 
     public static boolean isSafe(int[][] board,
                                  int row, int col,
@@ -140,23 +144,6 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    public static void print(
-            int[][] board, int N)
-    {
-        // we got the answer, just print it
-        for (int r = 0; r < N; r++) {
-            for (int d = 0; d < N; d++) {
-                System.out.print(board[r][d]);
-                System.out.print(" ");
-            }
-            System.out.print("\n");
-
-            if ((r + 1) % (int)Math.sqrt(N) == 0) {
-                System.out.print("");
-            }
-        }
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -166,6 +153,14 @@ public class MainActivity extends AppCompatActivity {
 //                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
 //                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
 //        );
+
+        final Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        device_height = metrics.heightPixels;
+        device_width = metrics.widthPixels;
+
         setContentView(R.layout.activity_main);
         btnSOLVE = findViewById(R.id.btnSolve);
         btnRESET = findViewById(R.id.btnReset);
@@ -183,6 +178,12 @@ public class MainActivity extends AppCompatActivity {
         imageView_bottom = findViewById(R.id.imageViewbottom);
         imageView_left = findViewById(R.id.imageViewleft);
         imageView_right = findViewById(R.id.imageViewright);
+        int_values = new int[9][9];
+        for(int row = 0; row < 9; row++){
+            for(int column = 0; column < 9; column++){
+                int_values[row][column] = 0;
+            }
+        }
 
         imageViews[0] = findViewById(R.id.imageView1);
         imageViews[1] = findViewById(R.id.imageView2);
@@ -467,6 +468,9 @@ public class MainActivity extends AppCompatActivity {
         numbers[6] = BitmapFactory.decodeResource(getResources(),R.drawable.num_seven);
         numbers[7] = BitmapFactory.decodeResource(getResources(),R.drawable.num_eight);
         numbers[8] = BitmapFactory.decodeResource(getResources(),R.drawable.num_nine);
+        for(int count = 0; count < 9; count++){
+            numbers[count] = resizeBitmap(numbers[count]);
+        }
 
         optionsbar_bt = BitmapFactory.decodeResource(getResources(),R.drawable.options);
 
@@ -567,8 +571,6 @@ public class MainActivity extends AppCompatActivity {
         imageView_bottom.setImageBitmap(resizeBitmap(image_bottom));
         imageView_left.setImageBitmap(resizeBitmap(image_left));
         imageView_right.setImageBitmap(resizeBitmap(image_right));
-
-        imageView_num[0].setImageBitmap(resizeBitmap(numbers[4]));
 
         imageView_dialPad[0].setImageBitmap(resizeBitmap(dialPad[0]));
         imageView_dialPad[1].setImageBitmap(resizeBitmap(dialPad[1]));
@@ -1737,30 +1739,177 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        imageView_dialPad[0].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(any_selected == true) {
+                    int row = (int) selected_cell / 9;
+                    int column = (int) selected_cell % 9;
+                    if(sub_valid(row, column, 1)){
+                        imageView_num[selected_cell].setImageBitmap(numbers[0]);
+                        int_values[row][column] = 1;
+                    }else{
+                        vibe.vibrate(100);
+                    }
+                }
+            }
+        });
+
+        imageView_dialPad[1].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(any_selected == true) {
+                    int row = (int) selected_cell / 9;
+                    int column = (int) selected_cell % 9;
+                    if(sub_valid(row, column, 2)){
+                        imageView_num[selected_cell].setImageBitmap(numbers[1]);
+                        int_values[row][column] = 2;
+                    }else{
+                        vibe.vibrate(100);
+                    }
+                }
+            }
+        });
+
+        imageView_dialPad[2].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(any_selected == true) {
+                    int row = (int) selected_cell / 9;
+                    int column = (int) selected_cell % 9;
+                    if(sub_valid(row, column, 3)){
+                        imageView_num[selected_cell].setImageBitmap(numbers[2]);
+                        int_values[row][column] = 3;
+                    }else{
+                        vibe.vibrate(100);
+                    }
+                }
+            }
+        });
+
+        imageView_dialPad[3].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(any_selected == true) {
+                    int row = (int) selected_cell / 9;
+                    int column = (int) selected_cell % 9;
+                    if(sub_valid(row, column, 4)){
+                        imageView_num[selected_cell].setImageBitmap(numbers[3]);
+                        int_values[row][column] = 4;
+                    }else{
+                        vibe.vibrate(100);
+                    }
+                }
+            }
+        });
+
+        imageView_dialPad[4].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(any_selected == true) {
+                    int row = (int) selected_cell / 9;
+                    int column = (int) selected_cell % 9;
+                    if(sub_valid(row, column, 5)){
+                        imageView_num[selected_cell].setImageBitmap(numbers[4]);
+                        int_values[row][column] = 5;
+                    }else{
+                        vibe.vibrate(100);
+                    }
+                }
+            }
+        });
+
+        imageView_dialPad[5].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(any_selected == true) {
+                    int row = (int) selected_cell / 9;
+                    int column = (int) selected_cell % 9;
+                    if(sub_valid(row, column, 6)){
+                        imageView_num[selected_cell].setImageBitmap(numbers[5]);
+                        int_values[row][column] = 6;
+                    }else{
+                        vibe.vibrate(100);
+                    }
+                }
+            }
+        });
+
+        imageView_dialPad[6].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(any_selected == true) {
+                    int row = (int) selected_cell / 9;
+                    int column = (int) selected_cell % 9;
+                    if(sub_valid(row, column, 7)){
+                        imageView_num[selected_cell].setImageBitmap(numbers[6]);
+                        int_values[row][column] = 7;
+                    }else{
+                        vibe.vibrate(100);
+                    }
+                }
+            }
+        });
+
+        imageView_dialPad[7].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(any_selected == true) {
+                    int row = (int) selected_cell / 9;
+                    int column = (int) selected_cell % 9;
+                    if(sub_valid(row, column, 8)){
+                        imageView_num[selected_cell].setImageBitmap(numbers[7]);
+                        int_values[row][column] = 8;
+                    }else{
+                        vibe.vibrate(100);
+                    }
+                }
+            }
+        });
+
+        imageView_dialPad[8].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(any_selected == true) {
+                    int row = (int) selected_cell / 9;
+                    int column = (int) selected_cell % 9;
+                    if(sub_valid(row, column, 9)){
+                        imageView_num[selected_cell].setImageBitmap(numbers[8]);
+                        int_values[row][column] = 9;
+                    }else{
+                        vibe.vibrate(100);
+                    }
+                }
+            }
+        });
+
+        imageView_dialPad[9].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(any_selected == true) {
+                    int row = (int) selected_cell / 9;
+                    int column = (int) selected_cell % 9;
+                    int_values[row][column] = 0;
+                    imageView_num[selected_cell].setImageBitmap(null);
+                }
+            }
+        });
+
         btnSOLVE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String str_value;
-                int_values = new int[9][9];
-                for(int row = 0; row < 9; row++) {
-                    for (int column = 0; column < 9; column++) {
-                        str_value = EditTextValues[row][column].getText().toString();
-                        if (str_value.isEmpty()) {
-                            int_values[row][column] = 0;
-                        } else {
-                            int_values[row][column] = Integer.parseInt(str_value);
-                        }
-                    }
-                }
                 int N = int_values.length;
-
                 if (solveSudoku(int_values, N)) {
                     for(int row = 0; row < 9; row++) {
                         for (int column = 0; column < 9; column++) {
-                            str_value = Integer.toString(int_values[row][column]);
-                            EditTextValues[row][column].setText(str_value);
+                            int array_no = (row * 9) + column;
+                            int array_val = int_values[row][column];
+                            imageView_num[array_no].setImageBitmap(numbers[array_val - 1]);
                         }
                     }
+                }
+                else{
+                    displayMessage(getBaseContext(),"Not a valid SUDOKO");
                 }
             }
         });
@@ -1770,8 +1919,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 for(int row = 0; row < 9; row++) {
                     for (int column = 0; column < 9; column++) {
-                        EditTextValues[row][column].setText("");
+                        int_values[row][column]= 0;
                     }
+                }
+                for(int count = 0; count < 81; count++) {
+                    imageView_num[count].setImageBitmap(null);
                 }
             }
         });
@@ -1785,10 +1937,6 @@ public class MainActivity extends AppCompatActivity {
 
     public Bitmap resizeBitmap(Bitmap bitmap)
     {
-        DisplayMetrics metrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        float device_height = metrics.heightPixels;
-        float device_width = metrics.widthPixels;
         float origWidth = bitmap.getWidth();
         float origHeight = bitmap.getHeight();
         int destWidth = (int) ((origWidth / 1440) * device_width);
@@ -1809,5 +1957,60 @@ public class MainActivity extends AppCompatActivity {
         imageView_selected[cell].setVisibility(View.VISIBLE);
         imageView_selected[cell].bringToFront();
         imageView_selected[cell].invalidate();
+    }
+
+    public boolean sub_valid(int row, int column, int number){
+        int r_remainder = row % 3;
+        int c_remainder = column % 3;
+        int r_upper_limit = 0, r_lower_limit = 0, c_upper_limit = 0, c_lower_limit = 0;
+        if(r_remainder == 0){
+            r_upper_limit = row;
+            r_lower_limit = row + 3;
+        }else if(r_remainder == 1){
+            r_upper_limit = row - 1;
+            r_lower_limit = row + 2;
+        }else if(r_remainder == 2){
+            r_upper_limit = row - 2;
+            r_lower_limit = row + 1;
+        }
+        if(c_remainder == 0){
+            c_upper_limit = row;
+            c_lower_limit = row + 3;
+        }else if(c_remainder == 1){
+            c_upper_limit = row - 1;
+            c_lower_limit = row + 2;
+        }else if(c_remainder == 2){
+            c_upper_limit = row - 2;
+            c_lower_limit = row + 1;
+        }
+        for(int new_row = 0; new_row < 9; new_row++){
+            if(int_values[new_row][column] != number){
+                continue;
+            }else{
+                return false;
+            }
+        }
+        for(int new_column = 0; new_column < 9; new_column++){
+            if(int_values[row][new_column] != number){
+                continue;
+            }else{
+                return false;
+            }
+        }
+        for(int new_row = r_lower_limit; new_row < r_upper_limit; new_row++){
+            for(int new_column = c_lower_limit; new_column < c_upper_limit; new_column++) {
+                if(int_values[new_row][new_column] != number){
+                    continue;
+                }else{
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private void displayMessage(Context context, String message)
+    {
+        Toast.makeText(context,message,Toast.LENGTH_LONG).show();
     }
 }

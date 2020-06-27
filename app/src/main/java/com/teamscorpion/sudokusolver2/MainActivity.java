@@ -31,10 +31,15 @@ public class MainActivity extends AppCompatActivity {
     public EditText[][] EditTextValues;
     public int[][] int_values;
 
+    boolean any_selected;
+    int selected_cell;
+    int selected_value;
+
     Button btnSOLVE, btnRESET, btnBROWSE, btnCAMERA;
     ImageView[] imageViews;
     ImageView[] imageView_dialPad;
-    ImageView[] imageView_num;
+    ImageView[] imageView_num;;
+    ImageView[] imageView_selected;
     ImageView optionsbar;
     ImageView imageView_top, imageView_bottom, imageView_left, imageView_right;
     Bitmap[] images;
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     Bitmap image_selected;
     Bitmap[] numbers;
     Bitmap optionsbar_bt;
+    Bitmap selected;
 
     public static boolean isSafe(int[][] board,
                                  int row, int col,
@@ -151,32 +157,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void closeopen(){
-        imageView_dialPad[0].setVisibility(View.GONE);
-        imageView_dialPad[1].setVisibility(View.GONE);
-        imageView_dialPad[2].setVisibility(View.GONE);
-        imageView_dialPad[3].setVisibility(View.GONE);
-        imageView_dialPad[4].setVisibility(View.GONE);
-        imageView_dialPad[5].setVisibility(View.GONE);
-        imageView_dialPad[6].setVisibility(View.GONE);
-        imageView_dialPad[7].setVisibility(View.GONE);
-        imageView_dialPad[8].setVisibility(View.GONE);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                imageView_dialPad[0].setVisibility(View.VISIBLE);
-                imageView_dialPad[1].setVisibility(View.VISIBLE);
-                imageView_dialPad[2].setVisibility(View.VISIBLE);
-                imageView_dialPad[3].setVisibility(View.VISIBLE);
-                imageView_dialPad[4].setVisibility(View.VISIBLE);
-                imageView_dialPad[5].setVisibility(View.VISIBLE);
-                imageView_dialPad[6].setVisibility(View.VISIBLE);
-                imageView_dialPad[7].setVisibility(View.VISIBLE);
-                imageView_dialPad[8].setVisibility(View.VISIBLE);
-            }
-        },100);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -193,10 +173,11 @@ public class MainActivity extends AppCompatActivity {
         btnCAMERA = findViewById(R.id.btnCam);
         imageViews = new ImageView[81];
         imageView_num = new ImageView[81];
-        imageView_dialPad = new ImageView[9];
+        imageView_selected = new ImageView[81];
+        imageView_dialPad = new ImageView[13];
         images = new Bitmap[81];
         numbers = new Bitmap[9];
-        dialPad = new Bitmap[9];
+        dialPad = new Bitmap[13];
         optionsbar = findViewById(R.id.optionsbar);
         imageView_top = findViewById(R.id.imageViewtop);
         imageView_bottom = findViewById(R.id.imageViewbottom);
@@ -376,16 +357,106 @@ public class MainActivity extends AppCompatActivity {
         imageView_dialPad[6] = findViewById(R.id.imagedial7);
         imageView_dialPad[7] = findViewById(R.id.imagedial8);
         imageView_dialPad[8] = findViewById(R.id.imagedial9);
+        imageView_dialPad[9] = findViewById(R.id.imagedial10);
+        imageView_dialPad[10] = findViewById(R.id.imagedialleft);
+        imageView_dialPad[11] = findViewById(R.id.imagedialright);
+        imageView_dialPad[12] = findViewById(R.id.imagedialbottom);
 
-        dialPad[0] = BitmapFactory.decodeResource(getResources(),R.drawable.dialone);
-        dialPad[1] = BitmapFactory.decodeResource(getResources(),R.drawable.dialtwo);
-        dialPad[2] = BitmapFactory.decodeResource(getResources(),R.drawable.dialthree);
-        dialPad[3] = BitmapFactory.decodeResource(getResources(),R.drawable.dialfour);
-        dialPad[4] = BitmapFactory.decodeResource(getResources(),R.drawable.dialfive);
-        dialPad[5] = BitmapFactory.decodeResource(getResources(),R.drawable.dialsix);
-        dialPad[6] = BitmapFactory.decodeResource(getResources(),R.drawable.dialseven);
-        dialPad[7] = BitmapFactory.decodeResource(getResources(),R.drawable.dialeight);
-        dialPad[8] = BitmapFactory.decodeResource(getResources(),R.drawable.dialnine);
+        imageView_selected[0] = findViewById(R.id.imageselect1);
+        imageView_selected[1] = findViewById(R.id.imageselect2);
+        imageView_selected[2] = findViewById(R.id.imageselect3);
+        imageView_selected[3] = findViewById(R.id.imageselect4);
+        imageView_selected[4] = findViewById(R.id.imageselect5);
+        imageView_selected[5] = findViewById(R.id.imageselect6);
+        imageView_selected[6] = findViewById(R.id.imageselect7);
+        imageView_selected[7] = findViewById(R.id.imageselect8);
+        imageView_selected[8] = findViewById(R.id.imageselect9);
+        imageView_selected[9] = findViewById(R.id.imageselect10);
+        imageView_selected[10] = findViewById(R.id.imageselect11);
+        imageView_selected[11] = findViewById(R.id.imageselect12);
+        imageView_selected[12] = findViewById(R.id.imageselect13);
+        imageView_selected[13] = findViewById(R.id.imageselect14);
+        imageView_selected[14] = findViewById(R.id.imageselect15);
+        imageView_selected[15] = findViewById(R.id.imageselect16);
+        imageView_selected[16] = findViewById(R.id.imageselect17);
+        imageView_selected[17] = findViewById(R.id.imageselect18);
+        imageView_selected[18] = findViewById(R.id.imageselect19);
+        imageView_selected[19] = findViewById(R.id.imageselect20);
+        imageView_selected[20] = findViewById(R.id.imageselect21);
+        imageView_selected[21] = findViewById(R.id.imageselect22);
+        imageView_selected[22] = findViewById(R.id.imageselect23);
+        imageView_selected[23] = findViewById(R.id.imageselect24);
+        imageView_selected[24] = findViewById(R.id.imageselect25);
+        imageView_selected[25] = findViewById(R.id.imageselect26);
+        imageView_selected[26] = findViewById(R.id.imageselect27);
+        imageView_selected[27] = findViewById(R.id.imageselect28);
+        imageView_selected[28] = findViewById(R.id.imageselect29);
+        imageView_selected[29] = findViewById(R.id.imageselect30);
+        imageView_selected[30] = findViewById(R.id.imageselect31);
+        imageView_selected[31] = findViewById(R.id.imageselect32);
+        imageView_selected[32] = findViewById(R.id.imageselect33);
+        imageView_selected[33] = findViewById(R.id.imageselect34);
+        imageView_selected[34] = findViewById(R.id.imageselect35);
+        imageView_selected[35] = findViewById(R.id.imageselect36);
+        imageView_selected[36] = findViewById(R.id.imageselect37);
+        imageView_selected[37] = findViewById(R.id.imageselect38);
+        imageView_selected[38] = findViewById(R.id.imageselect39);
+        imageView_selected[39] = findViewById(R.id.imageselect40);
+        imageView_selected[40] = findViewById(R.id.imageselect41);
+        imageView_selected[41] = findViewById(R.id.imageselect42);
+        imageView_selected[42] = findViewById(R.id.imageselect43);
+        imageView_selected[43] = findViewById(R.id.imageselect44);
+        imageView_selected[44] = findViewById(R.id.imageselect45);
+        imageView_selected[45] = findViewById(R.id.imageselect46);
+        imageView_selected[46] = findViewById(R.id.imageselect47);
+        imageView_selected[47] = findViewById(R.id.imageselect48);
+        imageView_selected[48] = findViewById(R.id.imageselect49);
+        imageView_selected[49] = findViewById(R.id.imageselect50);
+        imageView_selected[50] = findViewById(R.id.imageselect51);
+        imageView_selected[51] = findViewById(R.id.imageselect52);
+        imageView_selected[52] = findViewById(R.id.imageselect53);
+        imageView_selected[53] = findViewById(R.id.imageselect54);
+        imageView_selected[54] = findViewById(R.id.imageselect55);
+        imageView_selected[55] = findViewById(R.id.imageselect56);
+        imageView_selected[56] = findViewById(R.id.imageselect57);
+        imageView_selected[57] = findViewById(R.id.imageselect58);
+        imageView_selected[58] = findViewById(R.id.imageselect59);
+        imageView_selected[59] = findViewById(R.id.imageselect60);
+        imageView_selected[60] = findViewById(R.id.imageselect61);
+        imageView_selected[61] = findViewById(R.id.imageselect62);
+        imageView_selected[62] = findViewById(R.id.imageselect63);
+        imageView_selected[63] = findViewById(R.id.imageselect64);
+        imageView_selected[64] = findViewById(R.id.imageselect65);
+        imageView_selected[65] = findViewById(R.id.imageselect66);
+        imageView_selected[66] = findViewById(R.id.imageselect67);
+        imageView_selected[67] = findViewById(R.id.imageselect68);
+        imageView_selected[68] = findViewById(R.id.imageselect69);
+        imageView_selected[69] = findViewById(R.id.imageselect70);
+        imageView_selected[70] = findViewById(R.id.imageselect71);
+        imageView_selected[71] = findViewById(R.id.imageselect72);
+        imageView_selected[72] = findViewById(R.id.imageselect73);
+        imageView_selected[73] = findViewById(R.id.imageselect74);
+        imageView_selected[74] = findViewById(R.id.imageselect75);
+        imageView_selected[75] = findViewById(R.id.imageselect76);
+        imageView_selected[76] = findViewById(R.id.imageselect77);
+        imageView_selected[77] = findViewById(R.id.imageselect78);
+        imageView_selected[78] = findViewById(R.id.imageselect79);
+        imageView_selected[79] = findViewById(R.id.imageselect80);
+        imageView_selected[80] = findViewById(R.id.imageselect81);
+
+        dialPad[0] = BitmapFactory.decodeResource(getResources(),R.drawable.dp_one);
+        dialPad[1] = BitmapFactory.decodeResource(getResources(),R.drawable.dp_two);
+        dialPad[2] = BitmapFactory.decodeResource(getResources(),R.drawable.dp_three);
+        dialPad[3] = BitmapFactory.decodeResource(getResources(),R.drawable.dp_four);
+        dialPad[4] = BitmapFactory.decodeResource(getResources(),R.drawable.dp_five);
+        dialPad[5] = BitmapFactory.decodeResource(getResources(),R.drawable.dp_six);
+        dialPad[6] = BitmapFactory.decodeResource(getResources(),R.drawable.dp_seven);
+        dialPad[7] = BitmapFactory.decodeResource(getResources(),R.drawable.dp_eight);
+        dialPad[8] = BitmapFactory.decodeResource(getResources(),R.drawable.dp_nine);
+        dialPad[9] = BitmapFactory.decodeResource(getResources(),R.drawable.dp_ten);
+        dialPad[10] = BitmapFactory.decodeResource(getResources(),R.drawable.dp_left);
+        dialPad[11] = BitmapFactory.decodeResource(getResources(),R.drawable.dp_right);
+        dialPad[12] = BitmapFactory.decodeResource(getResources(),R.drawable.dp_bottom);
 
         numbers[0] = BitmapFactory.decodeResource(getResources(),R.drawable.num_one);
         numbers[1] = BitmapFactory.decodeResource(getResources(),R.drawable.num_two);
@@ -398,6 +469,9 @@ public class MainActivity extends AppCompatActivity {
         numbers[8] = BitmapFactory.decodeResource(getResources(),R.drawable.num_nine);
 
         optionsbar_bt = BitmapFactory.decodeResource(getResources(),R.drawable.options);
+
+        selected = BitmapFactory.decodeResource(getResources(),R.drawable.select);
+        selected = resizeBitmap(selected);
 
         image_top = BitmapFactory.decodeResource(getResources(),R.drawable.top);
         image_bottom = BitmapFactory.decodeResource(getResources(),R.drawable.bottom);
@@ -496,8 +570,6 @@ public class MainActivity extends AppCompatActivity {
 
         imageView_num[0].setImageBitmap(resizeBitmap(numbers[4]));
 
-        optionsbar.setImageBitmap(resizeBitmap(optionsbar_bt));
-
         imageView_dialPad[0].setImageBitmap(resizeBitmap(dialPad[0]));
         imageView_dialPad[1].setImageBitmap(resizeBitmap(dialPad[1]));
         imageView_dialPad[2].setImageBitmap(resizeBitmap(dialPad[2]));
@@ -507,6 +579,10 @@ public class MainActivity extends AppCompatActivity {
         imageView_dialPad[6].setImageBitmap(resizeBitmap(dialPad[6]));
         imageView_dialPad[7].setImageBitmap(resizeBitmap(dialPad[7]));
         imageView_dialPad[8].setImageBitmap(resizeBitmap(dialPad[8]));
+        imageView_dialPad[9].setImageBitmap(resizeBitmap(dialPad[9]));
+        imageView_dialPad[10].setImageBitmap(resizeBitmap(dialPad[10]));
+        imageView_dialPad[11].setImageBitmap(resizeBitmap(dialPad[11]));
+        imageView_dialPad[12].setImageBitmap(resizeBitmap(dialPad[12]));
 
         imageViews[0].setImageBitmap(resizeBitmap(images[0]));
         imageViews[1].setImageBitmap(resizeBitmap(images[1]));
@@ -590,15 +666,16 @@ public class MainActivity extends AppCompatActivity {
         imageViews[79].setImageBitmap(resizeBitmap(images[79]));
         imageViews[80].setImageBitmap(resizeBitmap(images[80]));
 
-        imageView_dialPad[0].setVisibility(View.GONE);
-        imageView_dialPad[1].setVisibility(View.GONE);
-        imageView_dialPad[2].setVisibility(View.GONE);
-        imageView_dialPad[3].setVisibility(View.GONE);
-        imageView_dialPad[4].setVisibility(View.GONE);
-        imageView_dialPad[5].setVisibility(View.GONE);
-        imageView_dialPad[6].setVisibility(View.GONE);
-        imageView_dialPad[7].setVisibility(View.GONE);
-        imageView_dialPad[8].setVisibility(View.GONE);
+        for(int count = 0; count < 81; count++){
+            imageView_selected[count].setImageBitmap(selected);
+        }
+        for(int count = 0; count < 81; count++){
+            imageView_selected[count].setVisibility(View.GONE);
+        }
+
+        optionsbar.setImageBitmap(resizeBitmap(optionsbar_bt));
+        optionsbar.bringToFront();
+        optionsbar.invalidate();
 
         btnSOLVE = findViewById(R.id.btnSolve);
         btnRESET = findViewById(R.id.btnReset);
@@ -608,1146 +685,1055 @@ public class MainActivity extends AppCompatActivity {
         imageView_num[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(0);
             }
         });
 
         imageView_num[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(1);
             }
         });
 
         imageView_num[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(2);
             }
         });
 
         imageView_num[3].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(3);
             }
         });
 
         imageView_num[4].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(4);
             }
         });
 
         imageView_num[5].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(5);
             }
         });
 
         imageView_num[6].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(6);
             }
         });
 
         imageView_num[7].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(7);
             }
         });
 
         imageView_num[8].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(8);
             }
         });
 
         imageView_num[9].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(9);
             }
         });
 
         imageView_num[10].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(10);
             }
         });
 
         imageView_num[11].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(11);
             }
         });
 
         imageView_num[12].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(12);
             }
         });
 
         imageView_num[13].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(13);
             }
         });
 
         imageView_num[14].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(14);
             }
         });
 
         imageView_num[15].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(15);
             }
         });
 
         imageView_num[16].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(16);
             }
         });
 
         imageView_num[17].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(17);
             }
         });
 
         imageView_num[18].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(18);
             }
         });
 
         imageView_num[19].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(19);
             }
         });
 
         imageView_num[20].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(20);
             }
         });
 
         imageView_num[21].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(21);
             }
         });
 
         imageView_num[22].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(22);
             }
         });
 
         imageView_num[23].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
-            }
-        });
-
-        imageView_num[23].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                closeopen();
+                resetandSelect(23);
             }
         });
 
         imageView_num[24].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(24);
             }
         });
 
         imageView_num[25].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(25);
             }
         });
 
         imageView_num[26].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(26);
             }
         });
 
         imageView_num[27].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(27);
             }
         });
 
         imageView_num[28].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(28);
             }
         });
 
         imageView_num[29].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(29);
             }
         });
 
         imageView_num[30].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(30);
             }
         });
 
         imageView_num[31].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(31);
             }
         });
 
         imageView_num[32].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(32);
             }
         });
 
         imageView_num[33].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(33);
             }
         });
 
         imageView_num[34].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(34);
             }
         });
 
         imageView_num[35].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(35);
             }
         });
 
         imageView_num[36].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(36);
             }
         });
 
         imageView_num[37].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(37);
             }
         });
 
         imageView_num[38].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(38);
             }
         });
 
         imageView_num[39].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(39);
             }
         });
 
         imageView_num[40].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(40);
             }
         });
 
         imageView_num[41].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(41);
             }
         });
 
         imageView_num[42].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(42);
             }
         });
 
         imageView_num[43].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(43);
             }
         });
 
         imageView_num[44].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(44);
             }
         });
 
         imageView_num[45].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(45);
             }
         });
 
         imageView_num[46].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(46);
             }
         });
 
         imageView_num[47].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(47);
             }
         });
 
         imageView_num[48].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(48);
             }
         });
 
         imageView_num[49].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(49);
             }
         });
 
         imageView_num[50].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(50);
             }
         });
 
         imageView_num[51].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(51);
             }
         });
 
         imageView_num[52].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(52);
             }
         });
 
         imageView_num[53].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(53);
             }
         });
 
         imageView_num[54].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(54);
             }
         });
 
         imageView_num[55].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(55);
             }
         });
 
         imageView_num[56].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(56);
             }
         });
 
         imageView_num[57].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(57);
             }
         });
 
         imageView_num[58].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(58);
             }
         });
 
         imageView_num[59].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(59);
             }
         });
 
         imageView_num[60].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(60);
             }
         });
 
         imageView_num[61].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(61);
             }
         });
 
         imageView_num[62].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(62);
             }
         });
 
         imageView_num[63].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(63);
             }
         });
 
         imageView_num[64].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(64);
             }
         });
 
         imageView_num[65].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(65);
             }
         });
 
         imageView_num[66].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(66);
             }
         });
 
         imageView_num[67].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(67);
             }
         });
 
         imageView_num[68].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(68);
             }
         });
 
         imageView_num[69].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(69);
             }
         });
 
         imageView_num[70].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(70);
             }
         });
 
         imageView_num[71].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(71);
             }
         });
 
         imageView_num[72].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(72);
             }
         });
 
         imageView_num[73].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(73);
             }
         });
 
         imageView_num[74].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(74);
             }
         });
 
         imageView_num[75].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(75);
             }
         });
 
         imageView_num[76].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(76);
             }
         });
 
         imageView_num[77].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(77);
             }
         });
 
         imageView_num[78].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(78);
             }
         });
 
         imageView_num[79].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(79);
             }
         });
 
         imageView_num[80].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(80);
             }
-        });imageViews[0].setOnClickListener(new View.OnClickListener() {
+        });
+
+        imageViews[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(0);
             }
         });
 
         imageViews[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(1);
             }
         });
-
         imageViews[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(2);
             }
         });
-
         imageViews[3].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(3);
             }
         });
-
         imageViews[4].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(4);
             }
         });
-
         imageViews[5].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(5);
             }
         });
-
         imageViews[6].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(6);
             }
         });
-
         imageViews[7].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(7);
             }
         });
-
         imageViews[8].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(8);
             }
         });
-
         imageViews[9].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(9);
             }
         });
-
         imageViews[10].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(10);
             }
         });
-
         imageViews[11].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(11);
             }
         });
-
         imageViews[12].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(12);
             }
         });
-
         imageViews[13].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(13);
             }
         });
-
         imageViews[14].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(14);
             }
         });
-
         imageViews[15].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(15);
             }
         });
-
         imageViews[16].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(16);
             }
         });
-
         imageViews[17].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(17);
             }
         });
-
         imageViews[18].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(18);
             }
         });
-
         imageViews[19].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(19);
             }
         });
-
         imageViews[20].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(20);
             }
         });
-
         imageViews[21].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(21);
             }
         });
-
         imageViews[22].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(22);
             }
         });
-
         imageViews[23].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(23);
             }
         });
-
-        imageViews[23].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                closeopen();
-            }
-        });
-
         imageViews[24].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(24);
             }
         });
-
         imageViews[25].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(25);
             }
         });
-
         imageViews[26].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(26);
             }
         });
-
         imageViews[27].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(27);
             }
         });
-
         imageViews[28].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(28);
             }
         });
-
         imageViews[29].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(29);
             }
         });
-
         imageViews[30].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(30);
             }
         });
-
         imageViews[31].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(31);
             }
         });
-
         imageViews[32].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(32);
             }
         });
-
         imageViews[33].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(33);
             }
         });
-
         imageViews[34].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(34);
             }
         });
-
         imageViews[35].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(35);
             }
         });
-
         imageViews[36].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(36);
             }
         });
-
         imageViews[37].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(37);
             }
         });
-
         imageViews[38].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(38);
             }
         });
-
         imageViews[39].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(39);
             }
         });
-
         imageViews[40].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(40);
             }
         });
-
         imageViews[41].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(41);
             }
         });
-
         imageViews[42].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(42);
             }
         });
-
         imageViews[43].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(43);
             }
         });
-
         imageViews[44].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(44);
             }
         });
-
         imageViews[45].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(45);
             }
         });
-
         imageViews[46].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(46);
             }
         });
-
         imageViews[47].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(47);
             }
         });
-
         imageViews[48].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(48);
             }
         });
-
         imageViews[49].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(49);
             }
         });
-
         imageViews[50].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(50);
             }
         });
-
         imageViews[51].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(51);
             }
         });
-
         imageViews[52].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(52);
             }
         });
-
         imageViews[53].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(53);
             }
         });
-
         imageViews[54].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(54);
             }
         });
-
         imageViews[55].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(55);
             }
         });
-
         imageViews[56].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(56);
             }
         });
-
         imageViews[57].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(57);
             }
         });
-
         imageViews[58].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(58);
             }
         });
-
         imageViews[59].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(59);
             }
         });
-
         imageViews[60].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(60);
             }
         });
-
         imageViews[61].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(61);
             }
         });
-
         imageViews[62].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(62);
             }
         });
-
         imageViews[63].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(63);
             }
         });
-
         imageViews[64].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(64);
             }
         });
-
         imageViews[65].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(65);
             }
         });
-
         imageViews[66].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(66);
             }
         });
-
         imageViews[67].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(67);
             }
         });
-
         imageViews[68].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(68);
             }
         });
-
         imageViews[69].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(69);
             }
         });
-
         imageViews[70].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(70);
             }
         });
-
         imageViews[71].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(71);
             }
         });
-
         imageViews[72].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(72);
             }
         });
-
         imageViews[73].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(73);
             }
         });
-
         imageViews[74].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(74);
             }
         });
-
         imageViews[75].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(75);
             }
         });
-
         imageViews[76].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(76);
             }
         });
-
         imageViews[77].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(77);
             }
         });
-
         imageViews[78].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(78);
             }
         });
-
         imageViews[79].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(79);
             }
         });
-
         imageViews[80].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeopen();
+                resetandSelect(80);
             }
         });
 
@@ -1811,5 +1797,17 @@ public class MainActivity extends AppCompatActivity {
         // we create an scaled bitmap so it reduces the image, not just trim it
         Bitmap resized = Bitmap.createScaledBitmap(bitmap, destWidth, destHeight, false);
         return resized;
+    }
+
+    public void resetandSelect(int cell)
+    {
+        if(any_selected == true){
+            imageView_selected[selected_cell].setVisibility(View.GONE);
+        }
+        selected_cell = cell;
+        any_selected = true;
+        imageView_selected[cell].setVisibility(View.VISIBLE);
+        imageView_selected[cell].bringToFront();
+        imageView_selected[cell].invalidate();
     }
 }

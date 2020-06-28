@@ -1960,7 +1960,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean sub_valid(int row, int column, int number){
-        int r_remainder = row % 3;
+        int r_remainder = (int) row / 3;
         int c_remainder = column % 3;
         int r_upper_limit = 0, r_lower_limit = 0, c_upper_limit = 0, c_lower_limit = 0;
         if(r_remainder == 0){

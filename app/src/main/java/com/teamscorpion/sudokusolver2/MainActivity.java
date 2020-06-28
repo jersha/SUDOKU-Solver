@@ -1960,28 +1960,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean sub_valid(int row, int column, int number){
-        int r_remainder = (int) row / 3;
+        int r_remainder = row % 3;
         int c_remainder = column % 3;
         int r_upper_limit = 0, r_lower_limit = 0, c_upper_limit = 0, c_lower_limit = 0;
         if(r_remainder == 0){
-            r_upper_limit = row;
-            r_lower_limit = row + 3;
+            r_upper_limit = row + 3;
+            r_lower_limit = row;
         }else if(r_remainder == 1){
-            r_upper_limit = row - 1;
-            r_lower_limit = row + 2;
+            r_upper_limit = row + 2;
+            r_lower_limit = row - 1;
         }else if(r_remainder == 2){
-            r_upper_limit = row - 2;
-            r_lower_limit = row + 1;
+            r_upper_limit = row + 1;
+            r_lower_limit = row - 2;
         }
         if(c_remainder == 0){
-            c_upper_limit = row;
-            c_lower_limit = row + 3;
+            c_upper_limit = column + 3;
+            c_lower_limit = column;
         }else if(c_remainder == 1){
-            c_upper_limit = row - 1;
-            c_lower_limit = row + 2;
+            c_upper_limit = column + 2;
+            c_lower_limit = column - 1;
         }else if(c_remainder == 2){
-            c_upper_limit = row - 2;
-            c_lower_limit = row + 1;
+            c_upper_limit = column + 1;
+            c_lower_limit = column - 2;
         }
         for(int new_row = 0; new_row < 9; new_row++){
             if(int_values[new_row][column] != number){

@@ -164,8 +164,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnSOLVE = findViewById(R.id.btnSolve);
         btnRESET = findViewById(R.id.btnReset);
-        btnBROWSE = findViewById(R.id.btnFile);
-        btnCAMERA = findViewById(R.id.btnCam);
+//        btnBROWSE = findViewById(R.id.btnFile);
+//        btnCAMERA = findViewById(R.id.btnCam);
         imageViews = new ImageView[81];
         imageView_num = new ImageView[81];
         imageView_selected = new ImageView[81];

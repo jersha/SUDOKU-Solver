@@ -14,7 +14,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="60dp"
-        android:background="@drawable/btn_cam1"
+        android:background="@drawable/ripple_effect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -23,7 +23,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="60dp"
-        android:background="@drawable/btn_file"
+        android:background="@drawable/ripple_effect2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnCam" />
 
@@ -32,7 +32,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="60dp"
-        android:background="@drawable/btn_reset"
+        android:background="@drawable/ripple_effect3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnFile" />
 
@@ -41,7 +41,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="60dp"
-        android:background="@drawable/btn_solve"
+        android:background="@drawable/ripple_effect_solve"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnReset" />

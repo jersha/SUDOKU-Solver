@@ -681,8 +681,8 @@ public class MainActivity extends AppCompatActivity {
 
         btnSOLVE = findViewById(R.id.btnSolve);
         btnRESET = findViewById(R.id.btnReset);
-        btnBROWSE = findViewById(R.id.btnFile);
-        btnCAMERA = findViewById(R.id.btnCam);
+//        btnBROWSE = findViewById(R.id.btnFile);
+//        btnCAMERA = findViewById(R.id.btnCam);
 
         imageView_num[0].setOnClickListener(new View.OnClickListener() {
             @Override

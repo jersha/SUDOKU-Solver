@@ -9,42 +9,43 @@
     android:backgroundTintMode="add"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnCam"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/ripple_effect"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <Button-->
+<!--        android:id="@+id/btnCam"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginBottom="60dp"-->
+<!--        android:background="@drawable/ripple_effect"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
-    <Button
-        android:id="@+id/btnFile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/ripple_effect2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnCam" />
+<!--    <Button-->
+<!--        android:id="@+id/btnFile"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginBottom="60dp"-->
+<!--        android:background="@drawable/ripple_effect2"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/btnCam" />-->
 
     <Button
         android:id="@+id/btnReset"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/ripple_effect3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnFile" />
+        app:layout_constraintStart_toStartOf="@id/optionsbar"
+        app:layout_constraintTop_toTopOf="@id/optionsbar" />
 
     <Button
         android:id="@+id/btnSolve"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="60dp"
         android:background="@drawable/ripple_effect_solve"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnReset" />
+        app:layout_constraintEnd_toEndOf="@id/optionsbar"
+        app:layout_constraintTop_toTopOf="@id/optionsbar" />
 
     <ImageView
         android:id="@+id/imageViewtop"
